@@ -12,7 +12,8 @@ pipeline {
       }
       stage('TF Plan') {
         steps {
-           dir('dev'){
+           dir('.'){
+		bat 'cd ${env.PATH}'
                 bat 'terraform init'
                 bat 'terraform plan -out myplan'
             }
