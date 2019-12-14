@@ -15,9 +15,9 @@ pipeline {
           dir('infrastructure/packer/jenkins_aws/') {
             
             // Download packer and build AMI
-            sh 'wget -c https://releases.hashicorp.com/packer/1.1.0/packer_1.1.0_linux_amd64.zip'
-            sh 'unzip -o packer_1.1.0_linux_amd64.zip'
-            sh './packer build -color=false jenkins_agent_ami.json'
+            bat 'wget -c https://releases.hashicorp.com/packer/1.1.0/packer_1.1.0_linux_amd64.zip'
+            bat 'unzip -o packer_1.1.0_linux_amd64.zip'
+            bat './packer build -color=false jenkins_agent_ami.json'
 
             // Update AMI in Jenkins EC2 plugin
             //sh 'wget -c https://raw.githubusercontent.com/burukuru/jenkins-update-ec2-ami/master/jenkins-update-ec2-ami.py'
